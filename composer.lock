@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7227ec30c6edfe8e67f569979f7abf07",
+    "content-hash": "ff8be3282f8c2e1f413378f0c3c08cef",
     "packages": [
         {
             "name": "composer/installers",
@@ -1140,24 +1140,6 @@
             "time": "2025-04-30T23:37:27+00:00"
         },
         {
-            "name": "wpackagist-plugin/redis-cache",
-            "version": "2.7.0",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/redis-cache/",
-                "reference": "tags/2.7.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/redis-cache.2.7.0.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/redis-cache/"
-        },
-        {
             "name": "wpackagist-plugin/wordpress-importer",
             "version": "0.8.4",
             "source": {
@@ -1177,15 +1159,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "23.9",
+            "version": "26.1.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/23.9"
+                "reference": "tags/26.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.23.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.26.1.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1435,7 +1417,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../projects/parkour",
-                "reference": "98e9e348b492b1d725ebaefb03b533364d8ab00a"
+                "reference": "d571cc8a7b5445a2b7ce54c224fd938817b9c0d9"
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",

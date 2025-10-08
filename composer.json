@@ -60,8 +60,7 @@
     "roots/wp-config": "1.0.0",
     "wpackagist-theme/twentytwentyfive": "^1.0",
 	"wpackagist-plugin/wordpress-importer": "^0.8",
-    "wpackagist-plugin/redis-cache": "^2.5",
-    "wpackagist-plugin/wordpress-seo": "^23.0",
+    "wpackagist-plugin/wordpress-seo": "^26.1",
     "wpengine/advanced-custom-fields-pro": "*",
     "marshallu/mu-auth": "dev-main",
     "hirasso/focal-point-picker": "dev-main"
