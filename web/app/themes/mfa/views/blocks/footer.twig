@@ -1,0 +1,90 @@
+{#
+/**
+ * Footer Block
+ *
+ * @package mfa
+ */
+#}
+<div
+	{% if anchor %}id="{{ anchor }}"{% endif %}
+	class="w-full grid grid-cols-1 overflow-hidden"
+>
+	<div class="flex h-full items-end col-start-1 row-start-1">
+		<div class="relative w-full">
+			{% set image = fields.background_image %}
+			<img
+				loading="eager"
+				decoding="async"
+				src="{{ image.url|resize(1920) }}"
+				srcset="
+					{{ image.url|resize(768) }} 768w,
+					{{ image.url|resize(1024) }} 1024w,
+					{{ image.url|resize(1440) }} 1440w,
+					{{ image.url|resize(1920) }} 1920w,
+					{{ image.url|resize(2560) }} 2560w
+				"
+				sizes="100vw"
+				alt="{{ image.alt }}"
+				class="min-h-112 lg:min-h-0 h-full lg:h-auto max-h-[50rem] w-full object-cover"
+				style="object-position: {{ image.id|focal_point }}"
+			/>
+
+			<div class="absolute inset-0 bg-linear-to-b from-white via-white/80 to-white/60"></div>
+		</div>
+	</div>
+
+	<div class="col-start-1 row-start-1 h-full flex z-10">
+		<div class="w-full mx-auto px-6 max-w-5xl h-full">
+			<div class="h-full flex flex-col">
+				<div class="flex-1 flex flex-col w-full mx-auto max-w-5xl justify-center">
+					<div data-animate="true">
+						<h2 class="text-3xl lg:text-4xl font-bold font-mont leading-tight text-green text-left lg:text-center">{{ fields.heading }}</h2>
+						{% if fields.subheading %}
+							<div class="w-full mx-auto mt-6 lg:mt-8">
+								<div class="text-left lg:text-center text-gray-600 text-lg lg:text-xl lg:font-semibold no-img">{{ fields.subheading }}</div>
+							</div>
+						{% endif %}
+					</div>
+
+					{% if fields.contacts %}
+						<div class="grid grid-cols-1 lg:grid-cols-3 md:gap-6 lg:gap-12 mt-16">
+							{% for contact in fields.contacts %}
+								<div data-animate="true" style="--delay: {{ loop.index * 100 }}ms;" class="lg:[transition-delay:var(--delay)] flex flex-col justify-center gap-8 py-8">
+									<div class="">
+										<img src="{{ contact.headshot.url|resize(480, 480) }}" class="h-36 w-36 flex items-center justify-center rounded-full mx-auto object-cover ring-4 ring-green" alt="{{ contact.headshot.alt }}" style="object-position: {{ contact.headshot.id|focal_point }}" />
+									</div>
+									<div class="">
+										<div class="text-center text-xl font-bold">{{ contact.contact_name }}</div>
+										<div class="text-center text-lg">{{ contact.contact_title }}</div>
+										<div class="text-center text-lg mt-2"><a class="animate-link" href="mailto:{{ contact.contact_email }}">{{ contact.contact_email }}</a></div>
+										<div class="text-center text-lg"><a class="animate-link" href="tel:{{ contact.contact_phone }}">{{ contact.contact_phone }}</a></div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+
+					{% if fields.links %}
+						<div data-animate="true" class="delay-200 flex flex-col lg:flex-row justify-center items-center leading-none gap-4 lg:gap-0 mt-16">
+							{% for link in fields.links %}
+								{{ include('partials/cta.twig', { link: link }) }}
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+
+				<div data-animate="true" class="delay-300 w-full flex flex-col justify-center items-start py-6 gap-4 mt-10">
+					<div class="w-full">
+						<img src="{{ theme.link }}/images/mfa-green.svg" class="h-12 lg:h-24 mx-auto" alt="Marshall For All logo" />
+					</div>
+					<div class="w-full text-center text-sm">
+						<a class="text-gray-900 underline transition-all duration-150 ease-in-out hover:no-underline hover:text-gray-900" href="/accreditation">Accreditation</a>
+						 | <a class="text-gray-900 underline transition-all duration-150 ease-in-out hover:no-underline hover:text-gray-900" href="/disclosures">Consumer Information and Disclosures</a>
+						 | <a class="text-gray-900 underline transition-all duration-150 ease-in-out hover:no-underline hover:text-gray-900" href="/disclosures/studentcomplaints/">Student Complaints</a>
+					</div>
+					<div class="w-full text-center text-sm text-gray-900">{{ "now"|date("Y") }} Marshall University. An Equal Opportunity University.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

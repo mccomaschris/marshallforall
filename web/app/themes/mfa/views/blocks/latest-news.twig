@@ -1,0 +1,51 @@
+{#
+/**
+ * Latest News Block
+ *
+ * @package mfa
+ */
+#}
+
+{% if fields.show_top_separator %}
+	<div data-animate="true" class="h-px w-1/2 mx-auto bg-gray-900/10"></div>
+{% endif %}
+
+<div
+	{% if anchor %}id="{{ anchor }}"{% endif %}
+	class="w-full py-16 relative"
+>
+	<div class="w-full mx-auto px-6 max-w-5xl">
+		<div data-animate="true">
+			<h2 class="text-3xl lg:text-4xl font-bold font-mont leading-tight text-green text-left lg:text-center">{{ fields.heading }}</h2>
+
+			{% if fields.subheading %}
+				<div class="w-full mx-auto mt-6 lg:mt-8">
+					<div class="text-left lg:text-center text-gray-600 text-lg lg:text-xl lg:font-semibold no-img">{{ fields.subheading }}</div>
+				</div>
+			{% endif %}
+		</div>
+
+		<div class="grid grid-cols-1 lg:grid-cols-2 mt-6 gap-y-4">
+			{% for item in fields.items %}
+				<a href="{{ item.link.url }}" data-animate="true" style="--delay: {{ loop.index * 100 }}ms;"  class="lg:[transition-delay:var(--delay)] relative w-full lg:px-10 py-6 lg:odd:pl-0 lg:even:pr-0 group after:content-[''] lg:after:absolute lg:after:top-0 lg:after:right-0 lg:after:w-px lg:after:h-full lg:after:bg-gray-900/10 even:after:bg-transparent">
+					<div class="flex items-start gap-6">
+						<div class="mt-0.5 h-8 w-8 rounded-full items-center justify-center flex bg-gray-500 text-gray-100 p-2 transition-all duration-150 ease-in-out group-hover:bg-gray-900 group-hover:text-white">
+							<svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+						</div>
+						<span class="text-lg font-semibold transition-all duration-150 ease-linear">
+							<span class="animate-text">
+								{{ item.link.title }}
+							</span>
+						</span>
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+
+		{% if fields.video.youtube_id %}
+			<div data-animate="true" class="delay-300 mt-12">
+				{{ include('partials/video.twig', { video: fields.video }) }}
+			</div>
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<head>
+    <meta charset="{{ site.charset }}" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net/">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    {% do action('get_header') %}
+    {{ function('wp_head') }}
+
+	<script src="https://cdn.usefathom.com/script.js" data-site="ZQZGHLNR" defer></script>
+	<script>
+	(function() {
+	var targetUrl = 'https://give.marshall.edu/project/26398/donate?des_id=411644';
+	var eventName = 'Give Now Click';
+
+	function bindDonateClicks() {
+		var links = document.querySelectorAll('a[href="' + targetUrl + '"]');
+		links.forEach(function(link) {
+		link.addEventListener('click', function() {
+			fathom.trackEvent(eventName);
+		});
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', bindDonateClicks);
+	} else {
+		bindDonateClicks();
+	}
+	})();
+	</script>
+
+	<style>
+		@font-face {
+			font-family: "Montserrat";
+			src: url("{{ theme.link }}/fonts/Montserrat-VariableFont_wght.ttf")
+			format("truetype");
+			font-weight: 1 1000;
+		}
+		@font-face {
+			font-family: "Nunito Sans";
+			src: url("{{ theme.link }}/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf")
+			format("truetype");
+			font-weight: 1 1000;
+		}
+	</style>
+
+	<link rel="icon" href="/favicon.ico" sizes="32x32">
+	<link rel="icon" href="/icon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>

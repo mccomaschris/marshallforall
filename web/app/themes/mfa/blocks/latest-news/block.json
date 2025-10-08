@@ -1,0 +1,19 @@
+{
+    "apiVersion": 2,
+    "name": "acf/latest-news",
+    "version": "1.0.0",
+    "title": "Latest News",
+    "category": "mfa",
+    "icon": "columns",
+    "keywords": ["news"],
+    "textdomain": "mfa",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": "mfa_latest_news_block"
+    },
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "customClassName": true
+    }
+}

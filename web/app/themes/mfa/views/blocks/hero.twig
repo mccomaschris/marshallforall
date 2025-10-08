@@ -1,0 +1,71 @@
+{#
+/**
+ * Hero Block
+ *
+ * @package mfa
+ */
+#}
+
+<div
+	{% if anchor %}id=""{% endif %}
+	class="relative min-h-[18rem] sm:min-h-[24rem] bg-white block--hero"
+>
+	<div class="relative h-full w-full">
+		<div class="absolute inset-0 bg-linear-to-t from-white lg:from-20% via-white/0 to-white/80"></div>
+
+		{% set image = get_image(fields.image) %}
+		{% if image %}
+			<img
+				loading="eager"
+				decoding="async"
+				src="{{ image|resize(1200) }}"
+				srcset="
+					{{ image|resize(768) }} 768w,
+					{{ image|resize(1024) }} 1024w,
+					{{ image|resize(1440) }} 1440w,
+					{{ image|resize(1920) }} 1920w,
+					{{ image|resize(2560) }} 2560w
+				"
+				sizes="100vw"
+				alt="{{ image.alt }}"
+				class="object-cover"
+				style="object-position: {{ image.id|focal_point }}"
+			/>
+		{% endif %}
+	</div>
+
+	<div class="absolute inset-0 w-full h-full">
+		<div class="w-full mx-auto px-6 max-w-5xl h-full">
+			<div class="flex flex-col h-full">
+				<div
+					x-data="stickyHeader"
+					:class="atTop ? 'bg-transparent' : 'bg-white border-b-2 border-gray-900/10'"
+					class="right-0 left-0 fixed top-0 z-1000 transition-all ease-linear duration-150"
+				>
+					<div class="flex items-center justify-between max-w-5xl mx-auto px-6">
+						<div class="flex items-center py-6">
+							<div class="pr-2 lg:pr-8 border-r border-gray-900/20">
+								<a href="/" title="Marshall for All Homepage">
+									<img src="{{ theme.link }}/images/mfa-green.svg" class="min-w-[56px] h-8 md:h-12 lg:min-w-[72px] xl:h-16" alt="Marshall For All logo" />
+								</a>
+							</div>
+
+							<div class="pl-2 lg:pl-8">
+								<a href="https://www.marshall.edu" title="Marshall University Homepage">
+									<img src="{{ theme.link }}/images/m_primary.svg" class="min-w-[56px] h-8 md:h-12 lg:min-w-[72px] xl:h-16" alt="Marshall University logo" />
+								</a>
+							</div>
+						</div>
+						<div>
+							<a id="top" href="https://give.marshall.edu/project/26398/donate?des_id=411644" class="cta-link"><span class="cta-text">Give Now</span></a>
+						</div>
+					</div>
+				</div>
+
+				<div data-animate="true" class="flex-1 flex items-center flex-col justify-end">
+					<img src="{{ theme.link }}/images/marshall-for-all.svg" class="h-24 sm:h-36 lg:h-48 mx-auto" alt="Marshall For All, Marshall Forever" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

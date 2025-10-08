@@ -1,0 +1,19 @@
+{
+    "apiVersion": 2,
+    "name": "acf/footer",
+    "version": "1.0.0",
+    "title": "Footer",
+    "category": "mfa",
+    "icon": "columns",
+    "keywords": ["footer","bottom"],
+    "textdomain": "mfa",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": "mfa_footer_block"
+    },
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "customClassName": true
+    }
+}

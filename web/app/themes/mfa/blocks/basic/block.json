@@ -1,0 +1,19 @@
+{
+    "apiVersion": 2,
+    "name": "acf/basic",
+    "version": "1.0.0",
+    "title": "Basic",
+    "category": "mfa",
+    "icon": "editor-justify",
+    "keywords": ["basic","base","content"],
+    "textdomain": "mfa",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": "mfa_basic_block"
+    },
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "customClassName": true
+    }
+}

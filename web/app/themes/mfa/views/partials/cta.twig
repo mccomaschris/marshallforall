@@ -1,0 +1,7 @@
+<a
+	href="{{ link.link.url }}"
+	class="cta-link"
+	{% if link.link.target == '_blank' %}target="_blank" rel="noopener noreferrer"{% endif %}
+>
+	<span class="cta-text">{{ link.link.title }}</span>
+</a>

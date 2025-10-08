@@ -1,0 +1,58 @@
+{#
+/**
+ * Facts Block
+ *
+ * @package mfa
+ */
+#}
+
+{% if fields.show_top_separator %}
+	<div data-animate="true" class="h-px w-1/2 mx-auto bg-gray-900/10"></div>
+{% endif %}
+
+<div
+	{% if anchor %}id="{{ anchor }}"{% endif %}
+	class="relative w-full"
+>
+	{% set image = get_image(fields.background_image) %}
+	{% if image %}
+		<img
+			loading="eager"
+			decoding="async"
+			src="{{ image|resize(1200) }}"
+			srcset="
+				{{ image|resize(768) }} 768w,
+				{{ image|resize(1024) }} 1024w,
+				{{ image|resize(1440) }} 1440w,
+				{{ image|resize(1920) }} 1920w,
+				{{ image|resize(2560) }} 2560w
+			"
+			sizes="100vw"
+			alt="{{ image.alt }}"
+			class="object-cover absolute top-0 w-full h-full"
+			style="object-position: {{ image.id|focal_point }}"
+		/>
+	{% endif %}
+
+	<div class="relative z-10 w-full  bg-linear-to-b from-white via-white/80 to-white py-16">
+		<div class="w-full mx-auto px-6 max-w-5xl">
+			<div data-animate="true">
+				<h2 class="text-3xl lg:text-4xl font-bold font-mont leading-tight text-green text-left lg:text-center">{{ fields.heading }}</h2>
+				{% if fields.subheading %}
+					<div class="w-full mx-auto mt-6 lg:mt-8">
+						<div class="text-left lg:text-center text-gray-600 text-lg lg:text-xl lg:font-semibold no-img">{{ fields.subheading }}</div>
+					</div>
+				{% endif %}
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 mt-8 animate-group">
+				{% for facts in fields.facts %}
+					<div data-animate="true" style="--delay: {{ (loop.index + 1) * 100 }}ms;" class="lg:[transition-delay:var(--delay)] relative w-full lg:px-6 py-6 group after:content-[''] lg:after:absolute lg:after:top-0 lg:after:right-0 lg:after:w-px lg:after:h-full lg:after:bg-gray-900/10 last:after:bg-transparent">
+						<div class="text-5xl lg:text-6xl font-black text-green text-left lg:text-center leading-tight">{{ facts.number }}</div>
+						<div class="text-base font-semibold text-gray-700 text-left lg:text-center">{{ facts.description }}</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

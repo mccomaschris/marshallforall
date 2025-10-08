@@ -1,0 +1,19 @@
+{
+    "apiVersion": 2,
+    "name": "acf/facts",
+    "version": "1.0.0",
+    "title": "Facts",
+    "category": "mfa",
+    "icon": "grid-view",
+    "keywords": ["facts","stats"],
+    "textdomain": "mfa",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": "mfa_facts_block"
+    },
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "customClassName": true
+    }
+}

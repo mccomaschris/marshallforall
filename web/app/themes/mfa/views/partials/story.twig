@@ -1,0 +1,28 @@
+<a href="{{ story.link.url }}" class="grid grid-cols-1 group shadow-xl">
+	<div class="col-start-1 row-start-1">
+		<img src="{{ story.photo.url|resize(800, 800) }}" class="object-cover" alt="{{ story.photo.alt }}" style="object-position: {{ story.photo.id|focal_point }}" />
+	</div>
+
+	<div class="col-start-1 row-start-1 bg-linear-to-t from-gray-900/80 via-gray-900/30 to-gray-900/10">
+		<div class="h-full w-full flex items-end px-6 pb-6">
+			<div class="flex flex-col">
+				<div class="transition-all duration-400 ease-linear text-xl lg:text-2xl font-semibold text-white">
+					<span class="animate-text">
+						{{ story.link.title }}
+					</span>
+				</div>
+
+				<div class="transition-all duration-500 ease-linear max-h-0 group-hover:max-h-[300px] overflow-hidden text-gray-50 text-lg">
+					{{ story.preview_text }}
+				</div>
+
+				<div class="flex items-center gap-3 mt-4">
+					<div class="h-8 w-8 rounded-full items-center justify-center ring-1 ring-white flex bg-gray-500 text-gray-100 p-2 transition-all duration-500 ease-linear  group-hover:bg-gray-900 group-hover:text-white">
+						<svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+					</div>
+					<span class="text-base lg:text-lg text-white font-bold">{{ story.link_text }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</a>

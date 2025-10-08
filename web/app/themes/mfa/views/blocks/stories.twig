@@ -1,0 +1,46 @@
+{#
+/**
+ * Stories Block
+ *
+ * @package mfa
+ */
+#}
+{% if fields.show_top_separator %}
+	<div data-animate="true" class="h-px w-1/2 mx-auto bg-gray-900/10"></div>
+{% endif %}
+
+<div
+	{% if anchor %}id="{{ anchor }}"{% endif %}
+	class="w-full relative"
+>
+	<div class="flex">
+		<div class="w-full mx-auto px-6 max-w-5xl py-16">
+			<div data-animate="true">
+				<h2 class="text-3xl lg:text-4xl font-bold font-mont leading-tight text-green text-left lg:text-center">{{ fields.heading }}</h2>
+				{% if fields.subheading %}
+					<div class="w-full mx-auto mt-6 lg:mt-8">
+						<div class="text-left lg:text-center text-gray-600 text-lg lg:text-xl lg:font-semibold no-img">{{ fields.subheading }}</div>
+					</div>
+				{% endif %}
+			</div>
+
+			<div class="mt-6">
+				<div data-animate="true" class="lg:[transition-delay:var(--delay)]">
+					{% if fields.video.youtube_id %}
+						{{ include('partials/video.twig', { video: fields.video }) }}
+					{% endif %}
+				</div>
+
+				<div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 animate-group">
+					{% if fields.stories %}
+						{% for story in fields.stories %}
+							<div data-animate="true" style="--delay: {{ (index + 1) * 100 }}ms;" class="lg:[transition-delay:var(--delay)]">
+								{{ include('partials/story.twig', { story: story }) }}
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

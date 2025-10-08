@@ -1,0 +1,19 @@
+{
+    "apiVersion": 2,
+    "name": "acf/stories",
+    "version": "1.0.0",
+    "title": "Stories",
+    "category": "mfa",
+    "icon": "columns",
+    "keywords": ["stories"],
+    "textdomain": "mfa",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": "mfa_stories_block"
+    },
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "customClassName": true
+    }
+}

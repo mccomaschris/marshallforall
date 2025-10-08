@@ -1,0 +1,18 @@
+{
+    "apiVersion": 2,
+    "name": "acf/media",
+    "version": "1.0.0",
+    "title": "Media",
+    "category": "mfa",
+    "icon": "media-default",
+    "textdomain": "mfa",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": "mfa_media_block"
+    },
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "customClassName": true
+    }
+}

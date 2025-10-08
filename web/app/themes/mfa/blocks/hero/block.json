@@ -1,0 +1,20 @@
+{
+    "apiVersion": 2,
+    "name": "acf/hero",
+    "version": "1.0.0",
+    "title": "Hero",
+    "description": "This is the hero block for all pages.",
+    "category": "mfa",
+    "icon": "admin-customizer",
+    "keywords": ["hero","header"],
+    "textdomain": "mfa",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": "mfa_hero_block"
+    },
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "customClassName": true
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }} class="antialiased scroll-smooth">
+    {% block head %}
+        {% include 'partials/head.twig' %}
+    {% endblock %}
+
+	<body x-data="animateOnScroll" class="{{ body_class }} bg-white font-sans leading-normal text-gray-800 min-h-screen">
+        {{ function('wp_body_open') }}
+
+        {% block content %}
+			Sorry, no content
+		{% endblock %}
+
+        {{ function('wp_footer') }}
+        {% do action('get_footer') %}
+		<script>
+			document.addEventListener("alpine:init", () => {
+				Alpine.data("animateOnScroll", () => ({
+				  observer: null,
+				  init() {
+					// Configure the IntersectionObserver to trigger when 20% of the element is visible
+					this.observer = new IntersectionObserver(
+					  (entries) => {
+						entries.forEach((entry) => {
+						  if (entry.intersectionRatio >= 0.2) { // Trigger when 20% visible
+							const target = entry.target;
+							target.setAttribute("data-in-view", "true"); // Let CSS know the element is in view.
+							this.observer.unobserve(target); // Stop observing once animated
+						  }
+						});
+					  },
+					  {
+						threshold: 0.2, // 20% visibility
+					  }
+					);
+
+					// Observe each element with the `data-animate` attribute
+					document.querySelectorAll("[data-animate='true']").forEach((el) => {
+					  this.observer.observe(el);
+					});
+				  },
+				}));
+			  });
+		</script>
+    </body>
+</html>
