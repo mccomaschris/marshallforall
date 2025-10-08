@@ -80,3 +80,4 @@ wp-config.php
 # uncomment the next line
 #/wp-content/themes
 >>>>>>> 9c4856e047e9bc93f730010ace1cf4af91fd8cfa
+web/app/uploads/
