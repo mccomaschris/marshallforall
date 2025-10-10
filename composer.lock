@@ -272,12 +272,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/marshallu/mu-auth.git",
-                "reference": "06467eb42fa5583028b2995b8a2bea3dd19aa49a"
+                "reference": "2f4d0d2226bbde555ee2f4daa81c6082dea9397d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marshallu/mu-auth/zipball/06467eb42fa5583028b2995b8a2bea3dd19aa49a",
-                "reference": "06467eb42fa5583028b2995b8a2bea3dd19aa49a",
+                "url": "https://api.github.com/repos/marshallu/mu-auth/zipball/2f4d0d2226bbde555ee2f4daa81c6082dea9397d",
+                "reference": "2f4d0d2226bbde555ee2f4daa81c6082dea9397d",
                 "shasum": ""
             },
             "require-dev": {
@@ -310,7 +310,7 @@
                 "source": "https://github.com/marshallu/mu-auth/tree/main",
                 "issues": "https://github.com/marshallu/mu-auth/issues"
             },
-            "time": "2025-10-10T17:28:57+00:00"
+            "time": "2025-10-10T17:52:51+00:00"
         },
         {
             "name": "oscarotero/env",
