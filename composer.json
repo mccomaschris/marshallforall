@@ -55,7 +55,7 @@
 	"wpackagist-plugin/wordpress-importer": "^0.8",
     "wpackagist-plugin/wordpress-seo": "^26.1",
     "wpengine/advanced-custom-fields-pro": "*",
-    "marshallu/mu-auth": "dev-bedrock-dev",
+    "marshallu/mu-auth": "dev-main",
     "hirasso/focal-point-picker": "dev-main"
   },
   "require-dev": {
