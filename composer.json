@@ -24,13 +24,6 @@
     "forum": "https://discourse.roots.io/category/bedrock"
   },
  "repositories": [
-	{
-      "type": "path",
-      "url": "../../projects/parkour",
-      "options": {
-        "symlink": true
-      }
-    },
     {
       "type": "composer",
       "url": "https://wpackagist.org",
@@ -67,8 +60,7 @@
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
-    "laravel/pint": "^1.18",
-    "mccomaschris/parkour": "@dev"
+    "laravel/pint": "^1.18"
   },
   "config": {
     "optimize-autoloader": true,
