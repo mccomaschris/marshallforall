@@ -5,7 +5,7 @@
     "title": "Basic",
     "category": "mfa",
     "icon": "editor-justify",
-    "keywords": ["basic","base","content"],
+    "keywords": ["basic","base","content", "yes"],
     "textdomain": "mfa",
     "acf": {
         "mode": "edit",
