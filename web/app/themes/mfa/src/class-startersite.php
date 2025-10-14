@@ -187,7 +187,7 @@ class StarterSite extends Site {
 	/**
 	 * Custom resize function that handles Basic Auth environments.
 	 *
-	 * @param string $image_url The image URL to resize.
+	 * @param string $image_url The image URL to resize today.
 	 * @param int    $width     The target width.
 	 * @return string The resized image URL or original URL if resizing fails.
 	 */
