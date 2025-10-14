@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for the 404 page
+ *
+ * @package mfa
  */
 
 namespace App;

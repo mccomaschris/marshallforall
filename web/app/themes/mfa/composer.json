@@ -17,11 +17,11 @@
 		"format": "phpcbf  --extensions=php --standard=phpcs.xml.dist --report-summary --report-source",
 		"lint": "phpcs --extensions=php --standard=phpcs.xml.dist"
 	},
-  "autoload": {
-    "psr-4": {
-      "App\\": "src/"
-    }
-  },
+	"autoload": {
+		"classmap": [
+			"src/"
+		]
+	},
   "config": {
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true

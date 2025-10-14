@@ -8,20 +8,22 @@
  * E.g., it puts together the home page when no home.php file exists.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package mfa
  */
 
 use Timber\Timber;
 
-$templates = [ 'templates/index.twig' ];
+$templates = array( 'templates/index.twig' );
 
 if ( is_home() ) {
 	array_unshift( $templates, 'templates/front-page.twig', 'templates/home.twig' );
 }
 
 $context = Timber::context(
-	[
+	array(
 		'foo' => 'bar',
-	]
+	)
 );
 
 Timber::render( $templates, $context );

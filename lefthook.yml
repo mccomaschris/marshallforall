@@ -1,0 +1,7 @@
+pre-commit:
+  commands:
+    lint:
+      run: composer lint
+    lint-twig:
+      glob: "*.twig"
+      run: composer twig-lint

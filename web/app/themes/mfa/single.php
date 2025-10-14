@@ -3,6 +3,8 @@
  * The Template for displaying all single posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package mfa
  */
 
 namespace App;
@@ -10,8 +12,8 @@ namespace App;
 use Timber\Timber;
 
 $context   = Timber::context();
-$post      = $context['post'];
-$templates = [ 'templates/single-' . $post->post_type . '.twig', 'templates/single.twig' ];
+$post      = $context['post']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+$templates = array( 'templates/single-' . $post->post_type . '.twig', 'templates/single.twig' );
 
 if ( post_password_required( $post->ID ) ) {
 	$templates = 'templates/single-password.twig';

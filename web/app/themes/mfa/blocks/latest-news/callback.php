@@ -33,6 +33,5 @@ function mfa_latest_news_block( $block, $content = '', $is_preview = false ) {
 
 	$context['anchor'] = ! empty( $block['anchor'] ) ? esc_attr( $block['anchor'] ) : '';
 
-
 	Timber::render( 'blocks/latest-news.twig', $context );
 }
