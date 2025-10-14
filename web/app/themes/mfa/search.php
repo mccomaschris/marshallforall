@@ -1,6 +1,6 @@
 <?php
 /**
- * Search results page
+ * Search results page please.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
