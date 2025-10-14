@@ -32,7 +32,7 @@ class StarterSite extends Site {
 		add_filter( 'timber/twig/environment/options', array( $this, 'update_twig_environment_options' ) );
 		add_action( 'acf/init', array( $this, 'mfa_register_blocks' ) );
 		add_action( 'acf/init', array( $this, 'mfa_default_page_template' ) );
-		add_filter( 'allowed_block_types_all', array( $this, 'mfa_allowed_block_types' ), 10, 2 );
+		add_filter( 'allowed_block_types_all', array( $this, 'mfa_allowed_block_types' ), 10, 1 );
 
 		parent::__construct();
 	}
@@ -164,25 +164,26 @@ class StarterSite extends Site {
 	/**
 	 * Return the object-position for images.
 	 *
-	 * @param string $id The image ID.
+	 * @param int $id The image ID.
 	 *
-	 * @return false|string
+	 * @return string
 	 */
 	public function focal_point( $id ) {
-		if ( ! function_exists( 'fcp_get_focalpoint' ) ) { // phpcs:ignore
+		if ( ! function_exists( 'fcp_get_focalpoint' ) ) {
 			return '50% 50%';
 		}
+
+		$id = absint( $id );
 
 		if ( get_post_type( $id ) !== 'attachment' ) {
 			return '50% 50%';
 		}
 
-		$focus        = fcp_get_focalpoint( $id ); // phpcs:ignore
-		$left_percent = $focus->leftPercent ? $focus->leftPercent : 50; // phpcs:ignore
-		$top_percent  = $focus->topPercent ? $focus->topPercent : 50; // phpcs:ignore
+		$focus        = fcp_get_focalpoint( $id );
+		$left_percent = $focus->leftPercent ? $focus->leftPercent : 50; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+		$top_percent  = $focus->topPercent ? $focus->topPercent : 50; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		return $left_percent . '% ' . $top_percent . '%;';
 	}
-
 	/**
 	 * Custom resize function that handles Basic Auth environments.
 	 *

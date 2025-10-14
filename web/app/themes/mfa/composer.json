@@ -14,7 +14,7 @@
     "php-stubs/acf-pro-stubs": "^6.0",
     "phpcompatibility/phpcompatibility-wp": "^2.1",
     "phpstan/phpstan": "^2.0",
-    "szepeviktor/phpstan-wordpress": "^1.3"
+    "szepeviktor/phpstan-wordpress": "^2.0"
   },
   "scripts": {
 	"format": "phpcbf  --extensions=php --standard=phpcs.xml.dist --report-summary --report-source",
