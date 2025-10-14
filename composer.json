@@ -56,7 +56,8 @@
     "wpackagist-plugin/wordpress-seo": "^26.1",
     "wpengine/advanced-custom-fields-pro": "*",
     "marshallu/mu-auth": "dev-main",
-    "hirasso/focal-point-picker": "dev-main"
+    "hirasso/focal-point-picker": "dev-main",
+    "mccomaschris/parkour": "^1.0"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
