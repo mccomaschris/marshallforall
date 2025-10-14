@@ -179,7 +179,7 @@ class StarterSite extends Site {
 			return '50% 50%';
 		}
 
-		$focus        = fcp_get_focalpoint( $id );
+		$focus        = fcp_get_focalpoint( $id ); // phpcs:ignore
 		$left_percent = $focus->leftPercent ? $focus->leftPercent : 50; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		$top_percent  = $focus->topPercent ? $focus->topPercent : 50; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		return $left_percent . '% ' . $top_percent . '%;';
