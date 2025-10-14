@@ -38,12 +38,6 @@
     "hirasso/focal-point-picker": "dev-main",
     "mccomaschris/parkour": "^1.0"
   },
-	"require-dev": {
-		"roave/security-advisories": "dev-latest",
-		"squizlabs/php_codesniffer": "^3.7",
-		"wp-coding-standards/wpcs": "^3.0",
-		"phpcompatibility/phpcompatibility-wp": "^2.1"
-	},
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
@@ -62,10 +56,5 @@
       "web/app/themes/{$name}/": ["type:wordpress-theme"]
     },
     "wordpress-install-dir": "web/wp"
-  },
-  "scripts": {
-    "format": "phpcbf  --extensions=php --standard=phpcs.xml.dist --report-summary --report-source",
-	"lint": "phpcs --extensions=php --standard=phpcs.xml.dist",
-    "twig-lint": "find web/app/themes/mfa/views -name '*.twig' -exec php -l {} \\;"
   }
 }
