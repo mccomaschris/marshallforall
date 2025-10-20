@@ -148,7 +148,6 @@ class StarterSite extends Site {
 	 * @param array $filters an array of Twig filters.
 	 */
 	public function add_filters_to_twig( $filters ) {
-
 		$additional_filters = array(
 			'focal_point' => array(
 				'callable' => array( $this, 'focal_point' ),
