@@ -31,5 +31,8 @@ auth.json
 wp-cli.local.yml
 web/app/uploads/
 
+# Node
+/node_modules
+
 .DS_Store
 **/.DS_Store

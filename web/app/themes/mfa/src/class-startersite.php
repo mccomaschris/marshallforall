@@ -1,8 +1,9 @@
 <?php
-
 /**
  * StarterSite class
  * This class is used to add custom functionality to the theme.
+ *
+ * @package mfa
  */
 
 namespace App;
@@ -16,9 +17,6 @@ use Twig\TwigFilter;
  * Class StarterSite.
  */
 class StarterSite extends Site {
-
-
-
 	/**
 	 * StarterSite constructor.
 	 */
@@ -32,9 +30,9 @@ class StarterSite extends Site {
 		add_filter( 'timber/twig/filters', array( $this, 'add_filters_to_twig' ) );
 		add_filter( 'timber/twig/functions', array( $this, 'add_functions_to_twig' ) );
 		add_filter( 'timber/twig/environment/options', array( $this, 'update_twig_environment_options' ) );
-		add_action( 'init', array( $this, 'mfa_register_blocks' ) );
-		add_action( 'init', array( $this, 'mfa_default_page_template' ) );
-		add_filter( 'allowed_block_types_all', array( $this, 'mfa_allowed_block_types' ), 10, 2 );
+		add_action( 'acf/init', array( $this, 'mfa_register_blocks' ) );
+		add_action( 'acf/init', array( $this, 'mfa_default_page_template' ) );
+		add_filter( 'allowed_block_types_all', array( $this, 'mfa_allowed_block_types' ), 10, 1 );
 
 		parent::__construct();
 	}
@@ -44,7 +42,7 @@ class StarterSite extends Site {
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style( 'mfa', get_template_directory_uri() . '/css/mfa.css', array(), filemtime( get_theme_file_path( '/css/mfa.css' ) ), 'all' );
-		wp_enqueue_script( 'sticky-header',  get_template_directory_uri() . '/js/sticky-header.js', array(), filemtime( get_theme_file_path( '/js/sticky-header.js' ) ), false );
+		wp_enqueue_script( 'sticky-header', get_template_directory_uri() . '/js/sticky-header.js', array(), filemtime( get_theme_file_path( '/js/sticky-header.js' ) ), false );
 	}
 
 	/**
@@ -60,14 +58,11 @@ class StarterSite extends Site {
 	/**
 	 * This is where you add some context.
 	 *
-	 * @param array $context context['this'] Being the Twig's {{ this }}
+	 * @param array $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['menu']  = Timber::get_menu( 'primary_navigation' );
-		$context['site']  = $this;
+		$context['menu'] = Timber::get_menu( 'primary_navigation' );
+		$context['site'] = $this;
 
 		return $context;
 	}
@@ -76,11 +71,10 @@ class StarterSite extends Site {
 	 * This is where you can add your theme supports.
 	 */
 	public function theme_supports() {
-		// Register navigation menus
 		register_nav_menus(
-			[
+			array(
 				'primary_navigation' => _x( 'Main menu', 'Backend - menu name', 'timber-starter' ),
-			]
+			),
 		);
 
 		// Add default posts and comments RSS feed links to head.
@@ -107,12 +101,12 @@ class StarterSite extends Site {
 		 */
 		add_theme_support(
 			'html5',
-			[
+			array(
 				'comment-form',
 				'comment-list',
 				'gallery',
 				'caption',
-			]
+			)
 		);
 
 		/*
@@ -122,7 +116,7 @@ class StarterSite extends Site {
 		 */
 		add_theme_support(
 			'post-formats',
-			[
+			array(
 				'aside',
 				'image',
 				'video',
@@ -130,7 +124,7 @@ class StarterSite extends Site {
 				'link',
 				'gallery',
 				'audio',
-			]
+			)
 		);
 
 		add_theme_support( 'menus' );
@@ -139,7 +133,7 @@ class StarterSite extends Site {
 	/**
 	 * This would return 'foo bar!'.
 	 *
-	 * @param string $text being 'foo', then returned 'foo bar!'
+	 * @param string $text being 'foo', then returned 'foo bar!'.
 	 */
 	public function myfoo( $text ) {
 		$text .= ' bar!';
@@ -154,7 +148,6 @@ class StarterSite extends Site {
 	 * @param array $filters an array of Twig filters.
 	 */
 	public function add_filters_to_twig( $filters ) {
-
 		$additional_filters = array(
 			'focal_point' => array(
 				'callable' => array( $this, 'focal_point' ),
@@ -170,29 +163,30 @@ class StarterSite extends Site {
 	/**
 	 * Return the object-position for images.
 	 *
-	 * @param string $id The image ID.
+	 * @param int $id The image ID.
 	 *
-	 * @return false|string
+	 * @return string
 	 */
 	public function focal_point( $id ) {
-		if ( ! function_exists( 'fcp_get_focalpoint' ) ) { // phpcs:ignore
+		if ( ! function_exists( 'fcp_get_focalpoint' ) ) {
 			return '50% 50%';
 		}
+
+		$id = absint( $id );
 
 		if ( get_post_type( $id ) !== 'attachment' ) {
 			return '50% 50%';
 		}
 
 		$focus        = fcp_get_focalpoint( $id ); // phpcs:ignore
-		$left_percent = $focus->leftPercent ? $focus->leftPercent : 50; // phpcs:ignore
-		$top_percent  = $focus->topPercent ? $focus->topPercent : 50; // phpcs:ignore
+		$left_percent = $focus->leftPercent ? $focus->leftPercent : 50; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+		$top_percent  = $focus->topPercent ? $focus->topPercent : 50; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		return $left_percent . '% ' . $top_percent . '%;';
 	}
-
 	/**
 	 * Custom resize function that handles Basic Auth environments.
 	 *
-	 * @param string $image_url The image URL to resize.
+	 * @param string $image_url The image URL to resize today.
 	 * @param int    $width     The target width.
 	 * @return string The resized image URL or original URL if resizing fails.
 	 */
@@ -221,11 +215,11 @@ class StarterSite extends Site {
 	 * @param array $functions an array of existing Twig functions.
 	 */
 	public function add_functions_to_twig( $functions ) {
-		$additional_functions = [
-			'get_theme_mod' => [
+		$additional_functions = array(
+			'get_theme_mod' => array(
 				'callable' => 'get_theme_mod',
-			],
-		];
+			),
+		);
 
 		return array_merge( $functions, $additional_functions );
 	}
@@ -235,13 +229,11 @@ class StarterSite extends Site {
 	 *
 	 * @see https://twig.symfony.com/doc/2.x/api.html#environment-options
 	 *
-	 * @param array $options an array of environment options
+	 * @param array $options an array of environment options.
 	 *
 	 * @return array
 	 */
 	public function update_twig_environment_options( $options ) {
-		// $options['autoescape'] = true;
-
 		return $options;
 	}
 
@@ -269,7 +261,7 @@ class StarterSite extends Site {
 	 * @param array $allowed_blocks Array of all blocks.
 	 * @return array
 	 */
-	function mfa_allowed_block_types( $allowed_blocks ) {
+	public function mfa_allowed_block_types( $allowed_blocks ) {
 		$allowed_blocks = array(
 			'acf/basic',
 			'acf/facts',

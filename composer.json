@@ -1,28 +1,8 @@
 {
-  "name": "roots/bedrock",
+  "name": "mccomaschris/marshallforall",
   "type": "project",
-  "license": "MIT",
-  "description": "WordPress boilerplate with Composer, easier configuration, and an improved folder structure",
-  "homepage": "https://roots.io/bedrock/",
-  "authors": [
-    {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
-    }
-  ],
-  "keywords": [
-    "bedrock", "composer", "roots", "wordpress", "wp", "wp-config"
-  ],
-  "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
-  },
+  "description": "Bedrock based WordPress site for marshallforall.org",
+  "homepage": "https://www.marshallforall.org",
  "repositories": [
     {
       "type": "composer",
@@ -43,7 +23,7 @@
     }
   ],
   "require": {
-    "php": ">=8.1",
+    "php": ">=8.3",
     "composer/installers": "^2.2",
     "vlucas/phpdotenv": "^5.5",
     "oscarotero/env": "^2.1",
@@ -51,17 +31,12 @@
     "roots/bedrock-disallow-indexing": "^2.0",
     "roots/wordpress": "6.8.3",
     "roots/wp-config": "1.0.0",
-    "wpackagist-theme/twentytwentyfive": "^1.0",
 	"wpackagist-plugin/wordpress-importer": "^0.8",
     "wpackagist-plugin/wordpress-seo": "^26.1",
     "wpengine/advanced-custom-fields-pro": "*",
     "marshallu/mu-auth": "dev-main",
     "hirasso/focal-point-picker": "dev-main",
     "mccomaschris/parkour": "^1.0"
-  },
-  "require-dev": {
-    "roave/security-advisories": "dev-latest",
-    "laravel/pint": "^1.18"
   },
   "config": {
     "optimize-autoloader": true,
@@ -81,9 +56,5 @@
       "web/app/themes/{$name}/": ["type:wordpress-theme"]
     },
     "wordpress-install-dir": "web/wp"
-  },
-  "scripts": {
-    "lint": "pint --test",
-    "lint:fix": "pint"
   }
 }
