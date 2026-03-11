@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5038728aea320e32ff970087ecc4f2cd",
+    "content-hash": "6780bae7ecd31a02027cc42636cddc44",
     "packages": [
         {
             "name": "composer/installers",
@@ -383,6 +383,57 @@
                 "issues": "https://github.com/marshallu/mu-auth/issues"
             },
             "time": "2026-03-10T16:02:48+00:00"
+        },
+        {
+            "name": "marshallu/mu-seo",
+            "version": "v1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marshallu/mu-seo.git",
+                "reference": "e1e161a01433faed28de2f771c5de97d65b29bc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marshallu/mu-seo/zipball/e1e161a01433faed28de2f771c5de97d65b29bc1",
+                "reference": "e1e161a01433faed28de2f771c5de97d65b29bc1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.3"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+                "php-stubs/acf-pro-stubs": "^6.0",
+                "php-stubs/wordpress-stubs": "^6.9",
+                "php-stubs/wp-cli-stubs": "^2.12",
+                "phpstan/phpstan": "^2.1",
+                "squizlabs/php_codesniffer": "@stable",
+                "szepeviktor/phpstan-wordpress": "^2.0",
+                "wp-coding-standards/wpcs": "^3.1"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher McComas",
+                    "email": "chris@example.com"
+                }
+            ],
+            "description": "A lean SEO plugin for Marshall University WordPress sites.",
+            "homepage": "https://github.com/marshallu/mu-seo",
+            "keywords": [
+                "plugin",
+                "seo",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/marshallu/mu-seo/issues",
+                "source": "https://github.com/marshallu/mu-seo/tree/v1.3.2"
+            },
+            "time": "2026-03-10T18:00:37+00:00"
         },
         {
             "name": "mccomaschris/parkour",

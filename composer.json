@@ -36,7 +36,8 @@
     "wpengine/advanced-custom-fields-pro": "*",
     "marshallu/mu-auth": "^1.0",
     "hirasso/focal-point-picker": "dev-main",
-    "mccomaschris/parkour": "^1.0"
+    "mccomaschris/parkour": "^1.0",
+    "marshallu/mu-seo": "^1.3"
   },
   "config": {
     "optimize-autoloader": true,
